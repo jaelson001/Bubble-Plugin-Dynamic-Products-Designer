@@ -1,0 +1,94 @@
+{
+    "add_is_visible": true,
+    "add_large_file_upload_properties": false,
+    "can_fit_height": true,
+    "can_fit_width": true,
+    "category": "visual elements",
+    "default_dim": {
+        "height": 850,
+        "width": 1920
+    },
+    "display": "Dynamic Products Designer",
+    "fields": {
+        "AAE": {
+            "caption": "accent color",
+            "default_val": "rgba(38,184,175,1)",
+            "doc": "Accent color for customization",
+            "editor": "Color",
+            "name": "accent",
+            "optional": true,
+            "rank": 0
+        },
+        "AAF": {
+            "caption": "width",
+            "default_val": 8.8,
+            "doc": "canvas width (in centimeters)",
+            "editor": "DynamicValue",
+            "name": "width",
+            "rank": 1,
+            "value": "number"
+        },
+        "AAG": {
+            "caption": "height",
+            "default_val": 4.8,
+            "doc": "canvas height(in centimeters)",
+            "editor": "DynamicValue",
+            "name": "height",
+            "rank": 2,
+            "value": "number"
+        },
+        "AAH": {
+            "caption": "bleed",
+            "default_val": 0.2,
+            "doc": "bleed for the canvas content",
+            "editor": "DynamicValue",
+            "name": "bleed",
+            "rank": 3,
+            "value": "number"
+        },
+        "AAI": {
+            "caption": "text line",
+            "default_val": 0.2,
+            "doc": "distance between bleed and text limit in the canvas (in centimeters)",
+            "editor": "DynamicValue",
+            "name": "text_line",
+            "rank": 4,
+            "value": "number"
+        },
+        "AAO": {
+            "caption": "API url field",
+            "default_val": "",
+            "doc": "API URL that receives the generated archive",
+            "editor": "DynamicValue",
+            "name": "url_api",
+            "optional": true,
+            "rank": 5,
+            "value": "text"
+        },
+        "AAP": {
+            "caption": "Cart url",
+            "default_val": "",
+            "doc": "Cart url for canceling click",
+            "editor": "DynamicValue",
+            "name": "url_cart",
+            "optional": true,
+            "rank": 6,
+            "value": "text"
+        },
+        "AAQ": {
+            "caption": "DPI",
+            "default_val": 300,
+            "doc": "Art DPI",
+            "editor": "DynamicValue",
+            "name": "dpi",
+            "rank": 7,
+            "value": "number"
+        }
+    },
+    "icon": "ion-qr-scanner",
+    "property_applications": {
+        "MinWidth": true,
+        "resizable": false
+    },
+    "support_autobinding": false
+}

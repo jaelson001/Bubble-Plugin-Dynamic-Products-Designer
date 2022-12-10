@@ -1,0 +1,20 @@
+{
+    "assets": {
+        "AAJ": {
+            "name": "fabric",
+            "url": "//dd7tel2830j4w.cloudfront.net/f1663942645649x691514889165698800/fabric.min.js"
+        },
+        "AAL": {
+            "name": "fabric.min",
+            "url": "//dd7tel2830j4w.cloudfront.net/f1663958861847x944613271206546000/fabric.min.js"
+        },
+        "AAN": {
+            "name": "qrcode",
+            "url": "//dd7tel2830j4w.cloudfront.net/f1668702069327x574971961261986370/qrcode.js"
+        }
+    },
+    "dependencies": {
+        "plugin_api_version": 3,
+        "use_jquery": true
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "categories": {
+        "0": "small business",
+        "1": "ecommerce",
+        "2": "productivity"
+    },
+    "description": "A Web product designer javascript based for small print business",
+    "image": "//s3.amazonaws.com/appforest_uf/f1664147516048x615963550671566000/Bubble%20Icon.png",
+    "license": "private",
+    "name": "Dynamic Products Designer"
+}
