@@ -360,10 +360,7 @@ function(instance, context) {
 						'</div>'+
 						'<div class="btn-group w-100 justify-content-center">'+
 							'<button title="Salvar e ir para o carrinho" onclick="salvar(canvas)" class="btn text-light accent d-rounded" style="width: 200px;flex: 0 0 auto;">'+
-								'Salvar no carrinho <i class="bi bi-cart-check"></i>'+
-							'</button>'+
-							'<button title="Enviar outra hora" onclick="ignorar()" class="btn text-light accent d-rounded" style="width: 200px;flex: 0 0 auto;">'+
-								'Enviar outra hora<i class="bi bi-cart"></i>'+
+								'Salvar<i class="bi bi-cart-check"></i>'+
 							'</button>'+
 						'</div>'+
 					'</div>'+
@@ -616,10 +613,6 @@ $('.dpd_svg_contain').click(function(){
     });
     canvas.requestRenderAll();
 });
-    
-window.ignorar = function(){
-    window.location.href = window.home+"/cart";
-}
 
 window.b64toBlob = (b64Data, contentType='', sliceSize=512) => {
   const byteCharacters = atob(b64Data);
@@ -668,9 +661,8 @@ window.download = function(canvas){
             back = image1;
             front = image2;
         }
-    document.getElementById('link_frente').href = front;
-    document.getElementById('link_verso').href = back;
-    document.getElementById('popup_download').style.display = 'block';
+    	instance.publishState("saved_canvas", JSON.stringify({front:front, back:back}));
+    	instance.triggerEvent('save_is_clicked');
 }
 
 //funções gerais

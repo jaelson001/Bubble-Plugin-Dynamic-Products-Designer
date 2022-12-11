@@ -5,7 +5,8 @@
         "2": "productivity"
     },
     "description": "A Web product designer javascript based for small print business",
-    "image": "//s3.amazonaws.com/appforest_uf/f1664147516048x615963550671566000/Bubble%20Icon.png",
-    "license": "private",
-    "name": "Dynamic Products Designer"
+    "image": "//s3.amazonaws.com/appforest_uf/f1670718683902x438199919803525570/bold.png",
+    "license": "commercial",
+    "name": "Dynamic Products Designer",
+    "plugin_instructions": "to save the JSON canvas object with front and back base64 select event \"Save button is clicked\" to recover state and save on to the database or export"
 }

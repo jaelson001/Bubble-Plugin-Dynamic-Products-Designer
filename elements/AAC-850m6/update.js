@@ -54,7 +54,7 @@ function(instance, properties, context) {
         window.atual = 'frente';
         window.frente = null;
         window.verso = window.canvas.toJSON();
-            
+        window.objCanvas = {};    
         //CRIANDO UNDO E REDO
         window._config = {
             canvasState             : [],
@@ -164,116 +164,15 @@ function(instance, properties, context) {
         
         //window.dpd_theme = properties.theme;
         document.documentElement.style.setProperty('--primary-color', properties.accent);
-            if(properties.url_cart == null){
-                $('[onclick="ignorar()"]').hide();
-            }
-            if(properties.url_api == null){
-                $('[onclick="salvar(canvas)"]').html("Salvar");
-            }
     })();
  
     //------------------------------------------------------------------------------------------
-    
-    window.ignorar = function(){
-        window.location.href = (properties.url_cart || window.location.host);
-    };
 
     window.salvar = async function(canvas){
-        if(properties.url_api == null){ window.download(canvas); return;}
-        var outra = atual == "frente" ? "verso" : "frente";
-        var image1, image2, front, back; 
-        image1 = canvas.toDataURL({
-            format: 'jpeg',
-            quality: 1,
-            multiplier: window.multiplier
-        });
-
-        var aux = canvas.toJSON();
-        canvas.loadFromJSON(window[outra]);
-        canvas.requestRenderAll();
-        image2 = canvas.toDataURL({
-            format: 'jpeg',
-            quality: 1,
-            multiplier: window.multiplier
-        });
-
-        canvas.loadFromJSON(aux);
-        canvas.requestRenderAll();
-        if(window.atual == 'frente'){
-            front = image1;
-            back = image2;
-        }else{
-            back = image1;
-            front = image2;
-        }
-        let url = (properties.url_api || window.location.host);
-        //let front = document.querySelector("#link_frente").src;
-        //let back = document.querySelector("#link_verso").src;
-        let params = new URLSearchParams(window.location.search);
-
-        window.dados = {
-            product_id:params.get('product_id'),
-            front:front,
-            back:back
-        };
-        console.log(dados);
-        $.post(url,dados)
-        .done((res) => {
-            $("#loader").hide();
-            if(res.redirect){
-                console.table(res);
-                window.location.href = res.redirect;
-            }else{
-                console.table(res);
-            }
-        });
+        window.download(canvas);
     };
     
     if(context == undefined){ $(instance.canvas).css('border', "2px dashed #777"); }
     $(instance.canvas).css('overflow-y', "auto");
 	$(instance.canvas).css("scrollbar-width", "none");
-
-
-
-    window.svg = function(canvas){
-        var outra = atual == "frente" ? "verso" : "frente"; 
-        if(window.atual == 'frente'){
-            var svgData = canvas.toSVG();
-            var svgBlob = new Blob([svgData], {type:"image/svg+xml;charset=utf-8"});
-            var image1 = URL.createObjectURL(svgBlob);
-
-            document.getElementById('link_frente').href = image1;
-
-            var aux = canvas.toJSON();
-            canvas.loadFromJSON(window[outra]);
-            canvas.requestRenderAll();
-            var svgData = canvas.toSVG();
-            var svgBlob = new Blob([svgData], {type:"image/svg+xml;charset=utf-8"});
-            var image2 = URL.createObjectURL(svgBlob);
-
-            document.getElementById('link_verso').href = image2;
-
-            canvas.loadFromJSON(aux);
-            canvas.requestRenderAll();
-        }else{
-            var svgData = canvas.toSVG();
-            var svgBlob = new Blob([svgData], {type:"image/svg+xml;charset=utf-8"});
-            var image1 = URL.createObjectURL(svgBlob);
-
-            document.getElementById('link_verso').href = image1;
-
-            var aux = canvas.toJSON();
-            canvas.loadFromJSON(window[outra]);
-            canvas.requestRenderAll();
-            var svgData = canvas.toSVG();
-            var svgBlob = new Blob([svgData], {type:"image/svg+xml;charset=utf-8"});
-            var image2 = URL.createObjectURL(svgBlob);
-
-            document.getElementById('link_frente.').href = image2;
-
-            canvas.loadFromJSON(aux);
-            canvas.requestRenderAll();
-        }
-        document.getElementById('popup_download').style.display = 'block';
-    }
 }

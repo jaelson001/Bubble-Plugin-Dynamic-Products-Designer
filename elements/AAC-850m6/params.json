@@ -9,6 +9,12 @@
         "width": 1920
     },
     "display": "Dynamic Products Designer",
+    "events": {
+        "AAb": {
+            "caption": "Save button is clicked",
+            "name": "save_is_clicked"
+        }
+    },
     "fields": {
         "AAE": {
             "caption": "accent color",
@@ -55,33 +61,13 @@
             "rank": 4,
             "value": "number"
         },
-        "AAO": {
-            "caption": "API url field",
-            "default_val": "",
-            "doc": "API URL that receives the generated archive",
-            "editor": "DynamicValue",
-            "name": "url_api",
-            "optional": true,
-            "rank": 5,
-            "value": "text"
-        },
-        "AAP": {
-            "caption": "Cart url",
-            "default_val": "",
-            "doc": "Cart url for canceling click",
-            "editor": "DynamicValue",
-            "name": "url_cart",
-            "optional": true,
-            "rank": 6,
-            "value": "text"
-        },
         "AAQ": {
             "caption": "DPI",
             "default_val": 300,
             "doc": "Art DPI",
             "editor": "DynamicValue",
             "name": "dpi",
-            "rank": 7,
+            "rank": 5,
             "value": "number"
         }
     },
@@ -89,6 +75,17 @@
     "property_applications": {
         "MinWidth": true,
         "resizable": false
+    },
+    "states": {
+        "AAY": {
+            "caption": "Canvas Object",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\treturn objCanvas;\n}"
+            },
+            "is_list": false,
+            "name": "saved_canvas",
+            "value": "text"
+        }
     },
     "support_autobinding": false
 }
